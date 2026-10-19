@@ -11,8 +11,8 @@ jobs:
 
             - name: Log in to Docker Hub
               env:
-                DH_USER: ${{ secrets.DOCKERHUB_USERNAME }}
-                DH_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+                DH_USER: ${{ secrets.DOCKER_USERNAME }}
+                DH_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
               run: |
                 printf '%s' "$DH_TOKEN" | docker login docker.io -u "$DH_USER" --password-stdin
             - name: Build and push Docker image
