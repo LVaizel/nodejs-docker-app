@@ -14,7 +14,7 @@ jobs:
                 DH_USER: ${{ secrets.DOCKER_USERNAME }}
                 DH_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
               run: |
-                printf 'Token: %s' "$DH_TOKEN"
+                printf 'user: %s' "$DH_USER" | docker login docker.io --username "$DH_USER" --password-stdin 
             - name: Build and push Docker image
               uses: docker/build-push-action@v4
               with:
