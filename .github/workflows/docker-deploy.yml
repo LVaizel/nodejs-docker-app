@@ -11,7 +11,7 @@ jobs:
 
             - name: Log in to Docker Hub
               env:
-                DH_USER: ${{ secrets.DOCKER_USERNAME }}
+                DH_USER: ${{ vars.DOCKER_USERNAME }}
                 DH_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
               run: |
                 printf 'user: %s' "$DH_USER" | docker login docker.io --username "$DH_USER" --password-stdin 
